@@ -12,7 +12,7 @@ Tags: `8.5` (what the Jenkinsfiles pin), `latest`, and `sha-<commit>` for a repr
 
 | | |
 |---|---|
-| PHP | `php:8.5-cli-bookworm` + `bcmath exif gd intl opcache pcntl pdo_mysql pdo_pgsql redis sockets xsl zip`; `memory_limit=-1` |
+| PHP | `php:8.5-cli-bookworm` + `bcmath exif gd intl opcache pcntl pcov pdo_mysql pdo_pgsql redis sockets xsl zip`; `memory_limit=-1` |
 | Composer | 2.x, `COMPOSER_ALLOW_SUPERUSER=1` |
 | Node.js | newest 22.x, glibc build, checksum-verified |
 | Tools | `git` (with `safe.directory '*'`), `unzip`, `pdftotext`/`pdftoppm` (poppler-utils) |

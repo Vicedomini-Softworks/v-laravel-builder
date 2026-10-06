@@ -77,7 +77,7 @@ jobs:
             git --version
             pdftotext -v
             [ "$(php -r "echo ini_get(\"memory_limit\");")" = "-1" ] || { echo "memory_limit is not unlimited"; exit 1; }
-            for ext in bcmath ctype curl dom exif fileinfo gd intl mbstring openssl pcntl pdo_mysql pdo_pgsql pdo_sqlite redis sockets sodium tokenizer xml xsl zip; do
+            for ext in bcmath ctype curl dom exif fileinfo gd intl mbstring openssl pcntl pcov pdo_mysql pdo_pgsql pdo_sqlite redis sockets sodium tokenizer xml xsl zip; do
               php -m | grep -qix "$ext" || { echo "missing PHP extension: $ext"; exit 1; }
             done
           '

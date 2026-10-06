@@ -27,11 +27,12 @@ RUN apt-get update \
 
 # What the official image lacks of what Laravel needs (ctype, curl, dom, fileinfo, filter,
 # hash, mbstring, openssl, pcre, pdo, pdo_sqlite, session, sodium, tokenizer, xml, ... are
-# built in), plus xsl for vcloud-billing's FatturaPA stylesheet checks.
+# built in), plus xsl for vcloud-billing's FatturaPA stylesheet checks and pcov, the
+# code-coverage driver (idle until PHPUnit/Pest is run with --coverage*).
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/install-php-extensions
 RUN chmod +x /usr/local/bin/install-php-extensions \
     && install-php-extensions @composer \
-        bcmath exif gd intl opcache pcntl pdo_mysql pdo_pgsql redis sockets xsl zip
+        bcmath exif gd intl opcache pcntl pcov pdo_mysql pdo_pgsql redis sockets xsl zip
 
 # The official image ships no php.ini, so PHP would run with memory_limit=128M and
 # PHPStan dies. setup-php runs the CLI unlimited; the container's own limit is the cap.
